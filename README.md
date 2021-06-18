@@ -13,7 +13,7 @@ Or
 ```shell
 go run axer.go domains.txt
 ```
-Install
+## Install
 
 ```shell
 go get -u github.com/leadcentaur/axer
