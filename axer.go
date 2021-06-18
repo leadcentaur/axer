@@ -31,7 +31,6 @@ func readDn(ch chan string, fname string) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		dn := scanner.Text()
-		fmt.Println(dn)
 		ch <- dn
 	}
 	close(ch)
@@ -63,7 +62,7 @@ func nsLookup(ch chan string, domain string, chB chan bool) {
 func doAXFR(ch chan string, respch chan string, domain string) {
 	defer rg.Done()
 	for ns := range ch {
-		fmt.Printf("Attempting AXFR, NS Len: %d @%s %s\n", len(ch), ns, domain)
+		color.Blue.Printf("Attempting AXFR, NS Len: %d @%s %s\n", len(ch), ns, domain)
 
 		tran := new(dns.Transfer)
 		msg := new(dns.Msg)
@@ -77,13 +76,15 @@ func doAXFR(ch chan string, respch chan string, domain string) {
 		}
 		//dump everything
 		for envelope := range respChan {
-			fmt.Println("Attempting AXFR on Domain:", domain)
+			color.Cyan.Print("Attempting AXFR on Domain: ", domain)
 			if envelope.Error != nil {
-				color.Red.Print("Transfer Failed - ")
+				color.Red.Print("\nTransfer Failed - ")
 				log.Printf("%s %s\n", envelope.Error, domain)
 
 			} else {
-				color.Green.Print("\t\t Transfer sucessful \n")
+				fmt.Println("\n")
+				color.BgGreen.Print("------Transfer sucessful!------")
+				fmt.Println("\n")
 				for _, rr := range envelope.RR {
 					fmt.Println(rr.Header().String())
 					switch v := rr.(type) {
@@ -102,7 +103,7 @@ func doAXFR(ch chan string, respch chan string, domain string) {
 var nsParsed string
 func main() {
 
-	var inputStr, fpath string
+	var fpath string
 
 	fig := figure.NewFigure("Axer v1.2", "", true)
 	fig.Print()
