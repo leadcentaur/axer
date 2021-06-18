@@ -118,10 +118,6 @@ func main() {
 	respch := make(chan string)
 	domainsd := make(chan string)
 
-	fmt.Println("Input str: ", inputStr)
-	fmt.Println("Filepath: ", fpath)
-	fmt.Println("Tail: ", tail)
-
 	if len(tail) == 0 || fpath =="deg" {
 		if len(tail) == 1 {
 			fpath = tail[0]
