@@ -62,7 +62,7 @@ func nsLookup(ch chan string, domain string, chB chan bool) {
 func doAXFR(ch chan string, respch chan string, domain string) {
 	defer rg.Done()
 	for ns := range ch {
-		color.Blue.Printf("Attempting AXFR, NS Len: %d @%s %s\n", len(ch), ns, domain)
+		color.Blue.Printf("Attempting AXFR @%s %s\n", ns, domain)
 
 		tran := new(dns.Transfer)
 		msg := new(dns.Msg)
