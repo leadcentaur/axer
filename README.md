@@ -4,7 +4,7 @@ A small DNS AXFR testing tool.
 * Inspired by a pentesting class I took
 
 <p align="center">
-  <img src="https://github.com/leadcentaur/axer/blob/5c1bd7dc3e19d2f5d84bb8f1d605a420df58bc70/banner.png>
+  <img src="https://github.com/leadcentaur/axer/blob/5c1bd7dc3e19d2f5d84bb8f1d605a420df58bc70/banner.png">
 </p>
 
 ## Basic Usage
