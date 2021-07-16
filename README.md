@@ -1,6 +1,5 @@
 # Axer 🪓 
 A small DNS AXFR testing tool.
-* This tool is my attempt at learning GoLang/concurrency.
 * Inspired by a pentesting class I took
 
 <p align="center">
