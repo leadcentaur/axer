@@ -10,6 +10,8 @@ A small DNS AXFR testing tool.
 You pass in a list of domains as input. The tool will then attempt to perform DNS zone transfer's for each domain in the list.
 If sucessful, it will dump to the screen.
 
+## Example input file
+
 ```shell
 google.com
 yahoo.com
